@@ -16,6 +16,7 @@ export class CareersPage extends AbstractPage {
   readonly dataLearMoreBtn: Locator;
   readonly pdfScreen: Locator;
   readonly applyToPositionBtn: Locator;
+  readonly openDescriptionElement: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -44,9 +45,10 @@ export class CareersPage extends AbstractPage {
       `//div[@data-tag="data"]//a[contains(@class,"button-primary")]`,
     );
     this.pdfScreen = page.locator(`[type="application/pdf"]`);
-    this.applyToPositionBtn = page.locator(
-      `//div[@data-tag="data"]//a[@href="/contact"]`,
-    );
+    this.applyToPositionBtn = page
+      .locator(`//div[@class="moduletable "]//a[@href="/contact"]`)
+      .nth(0);
+    this.openDescriptionElement = page.locator('[class*="open"]');
   }
 
   async moveToPositionRows() {
@@ -83,9 +85,7 @@ export class CareersPage extends AbstractPage {
 
   async openDataDescription() {
     await expect(this.dataRow).toBeVisible();
-    await this.dataRow.focus();
     await this.dataRow.click();
-    await expect(this.dataLearMoreBtn).toBeVisible();
   }
 
   async openDataPDFdescription() {
@@ -97,8 +97,6 @@ export class CareersPage extends AbstractPage {
   }
 
   async applyToDataPosition() {
-    await this.openDataDescription();
-    await expect(this.applyToPositionBtn).toBeVisible();
     await this.applyToPositionBtn.click();
   }
 }

@@ -27,6 +27,7 @@ test.describe('Position functionality test cases', () => {
     await careersPage.openDataDescription();
     await careersPage.applyToDataPosition();
     await contactPage.fillForm(contactData);
+    await contactPage.checkFormData(contactData);
     // Do not click on Contact us to avoid creation data on prod DB
   });
 });

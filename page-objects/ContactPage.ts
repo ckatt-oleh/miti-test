@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 import { AbstractPage } from './AbstractPage';
 import { ContactForm } from '../interfaces/contact-form.interface';
 
@@ -33,5 +33,19 @@ export class ContactPage extends AbstractPage {
       (await this.interestedInSelect.selectOption(formData.interestedIn));
     formData.howCanWeHelp &&
       (await this.howCanWeHelpTextarea.fill(formData.howCanWeHelp));
+  }
+
+  async checkFormData(formData: ContactForm) {
+    formData.firstName &&
+      (await expect(this.firstNameInput).toHaveValue(formData.firstName));
+    formData.lastName &&
+      (await expect(this.lastNameInput).toHaveValue(formData.lastName));
+    formData.company &&
+      (await expect(this.companyInput).toHaveValue(formData.company));
+    await expect(this.emailInput).toHaveValue(formData.email);
+    formData.howCanWeHelp &&
+      (await expect(this.howCanWeHelpTextarea).toHaveValue(
+        formData.howCanWeHelp,
+      ));
   }
 }

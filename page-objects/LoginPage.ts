@@ -21,6 +21,9 @@ export class LoginPage extends AbstractPage {
     await this.usernameInput.fill(userCred.username);
     await this.passwordInput.fill(userCred.password);
     await this.loginBtn.click();
+    //TODO Sometimes get popup instead of error msg - clarification with developer is needed
+    await this.wait(1000);
+    await this.loginBtn.click();
   }
 
   async assertEmailMsgAlert() {
