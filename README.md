@@ -8,6 +8,4 @@ $ npm install
 
 ## Running tests
 
-# run tests in headed mode
-
 $ npm run test:e2e
