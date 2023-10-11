@@ -4,7 +4,8 @@
   "description": "test framework",
   "main": "index.js",
   "scripts": {
-    "test:e2e": "playwright test --config=e2e.config.ts --headed --project=Chromium --reporter=html"
+    "test:e2e": "playwright test --config=e2e.config.ts --headed --project=Chromium --reporter=html",
+    "report": "npx playwright show-report"
   },
   "author": "Oleh Hordiienko",
   "license": "ISC",

@@ -9,3 +9,7 @@ $ npm install
 ## Running tests
 
 $ npm run test:e2e
+
+## Running report after test run
+
+$ npm run report
