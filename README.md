@@ -1,6 +1,7 @@
 # Miti test task
 
-Miti test task is simple representation of automation framework
+Miti test task is basic framework to verify login flow and and careers page features
+and instruction of how to run the tests.
 
 ## Installation
 
