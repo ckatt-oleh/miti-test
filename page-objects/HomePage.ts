@@ -18,7 +18,7 @@ export class HomePage extends AbstractPage {
   }
 
   async visit() {
-    await this.page.goto('https://www.mitigram.com');
+    await this.page.goto('/');
     await this.cookiesAcceptBtn.click();
     return this;
   }
